@@ -58,12 +58,13 @@ for I in range(10,70,5):
 
         a_t = a_tm + sigT
         b_t = 1/(a_tm/b_tm + np.dot(np.ones((vi,1)),np.transpose(np.sum(V,axis=1)).reshape(1,I) ))
-        T_temp = np.random.gamma(a_t, b_t)
+        #T_temp = np.random.gamma(a_t, b_t)
+        T = np.random.gamma(a_t, b_t)
 
         a_v = a_ve + sigV
         b_v = 1/(a_ve/b_ve + np.dot(np.transpose(np.sum(T,axis=0)).reshape(I,1),np.ones((1,tau))))
         V = np.random.gamma(a_v, b_v)
-        T = T_temp
+        #T = T_temp
 
         TV = np.dot(T, V)
         # sqrt_error_I[loop] = np.sqrt(np.sqrt(np.sum(np.square(faces - TV))))
